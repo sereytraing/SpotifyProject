@@ -20,7 +20,7 @@
     [super viewDidLoad];
     self.tf_artistName.delegate = self;
     self.submitButton.layer.cornerRadius = 10;
-    
+    requested = NO;
     [[UINavigationBar appearance] setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     [UINavigationBar appearance].shadowImage = [UIImage new];
     [UINavigationBar appearance].translucent = YES;
@@ -73,5 +73,55 @@
     [UIView setAnimationDuration: durationAnimation];
     viewToMove.frame = CGRectOffset(viewToMove.frame, 0, movement);
     [UIView commitAnimations];
+}
+
+- (IBAction)valueChanged:(id)sender {
+    NSLog(@"vChang");
+    NSLog(@"BOOL Taille > 3 = %d",(self.tf_artistName.text.length > 3));
+    self->next = @"null";
+    if (self.tf_artistName.text.length > 2 && !requested) {
+        [self getArtistFromApi];
+        
+    } else if (self.tf_artistName.text.length > 2 && !requested) {
+        
+    }else if (self.tf_artistName.text.length <= 2) {
+        requested = NO;
+    }
+    NSLog(@"Le total %d", [total intValue]);
+    for (int i = 1; i < [total intValue]; i++) {
+        NSLog(@"Nom des artistes %@", [NSString stringWithFormat:@"%@",[[listArtists objectAtIndex:i] objectForKey:@"name"]]);
+    }
+}
+
+-(void)getArtistFromApi {
+    NSString* url;
+    listArtists = [[NSMutableArray alloc] init];
+    if ([next isEqualToString:@"null"]) {
+        url = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=artist&market=FR&offset=0&limit=50", self.tf_artistName.text];
+    } else {
+        url = next;
+    }
+    NSURLSessionDataTask* dataTask;
+    do {
+        NSURLSession* session = [NSURLSession sharedSession];
+        NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: url]];
+        dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if(!error) {
+                self->jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                self->tempArr = [[jsonDict objectForKey:(@"artists")]objectForKey:(@"items")];
+                //NSLog(@"tempArr %@", self->tempArr);
+                [self->listArtists addObjectsFromArray:tempArr];
+                NSLog(@"listArtist %@", self->listArtists);
+                self->total = [[jsonDict objectForKey:(@"artists")]valueForKey:(@"total")];
+                self->next = [[jsonDict objectForKey:(@"artists")]valueForKey:(@"next")];
+                NSLog(@"%@ %@ %d", self->next, self->total, ![next isEqualToString:@"null"]);
+            } else {
+                NSLog(@"Erreur");
+            }
+            
+        }];
+    } while (![next isEqualToString:@"null"]);
+    [dataTask resume];
+    //NSLog(@"listArtist %@", self->listArtists);
 }
 @end

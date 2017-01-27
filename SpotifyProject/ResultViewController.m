@@ -38,7 +38,7 @@
     //Replace " " > +
     self.artistNameReceived = [self.artistNameReceived stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     artistNameUpdated = [[self.artistNameReceived stringByReplacingOccurrencesOfString:@" " withString:@"+"] mutableCopy];
-    NSLog(@"%@",artistNameUpdated);
+    //NSLog(@"%@",artistNameUpdated);
     
     //URL Builder
     NSString* url = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=track&market=FR", artistNameUpdated];
@@ -57,6 +57,7 @@
 
     }];
     [dataTask resume];
+    NSLog(@"@%");
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -106,7 +107,7 @@ static NSString* const kCellId = @"myCell";
     
     dvc.artistReceived = [[[[listTracks objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0]objectForKey:@"name"];
     dvc.durationReceived = [[listTracks objectAtIndex:indexPath.row] objectForKey:@"duration_ms"];
-    NSLog(@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"duration_ms"]);
+    //NSLog(@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"duration_ms"]);
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
