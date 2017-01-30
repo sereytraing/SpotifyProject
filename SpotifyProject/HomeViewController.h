@@ -15,12 +15,11 @@
     NSString *next;
     NSNumber *total;
     NSMutableDictionary* jsonDict;
-    NSMutableArray* tempArr;
     NSMutableArray* listArtists;
 }
 @property (weak, nonatomic) IBOutlet UIButton *submitButton;
 @property (weak, nonatomic) IBOutlet UITextField *tf_artistName;
 - (IBAction)valueChanged:(id)sender;
--(void)getArtistFromApi;
+-(void)getArtistFromApi:(NSString*) url;
 
 @end
