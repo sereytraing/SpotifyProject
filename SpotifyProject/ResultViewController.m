@@ -80,20 +80,47 @@
 static NSString* const kCellId = @"myCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ResultTrackCell* cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
-    
     if(!cell) {
         [tableView registerNib:[UINib nibWithNibName:@"ResultTrackCell" bundle:nil] forCellReuseIdentifier:kCellId];
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     }
-    
-    cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
-    cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
-    cell.imageView.image = [UIImage imageWithData: imageData];
-    cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
-    cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-    cell.backgroundColor = UIColorFromRGB(0x333333);
-    cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+    switch(self.segmentedControl.selectedSegmentIndex) {
+        case 0:
+        {
+            cell.trackLabel.text = @"aaaaaaa";
+            cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
+            cell.albumLabel.text = @"testttt";
+            cell.imageView.image = nil;
+            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+            cell.backgroundColor = UIColorFromRGB(0x333333);
+            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+            break;
+        }
+        case 1:
+        {
+            cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
+            cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
+            NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
+            cell.imageView.image = [UIImage imageWithData: imageData];
+            cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
+            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+            cell.backgroundColor = UIColorFromRGB(0x333333);
+            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+            break;
+        }
+        case 2:
+        {
+            cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
+            cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
+            NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
+            cell.imageView.image = [UIImage imageWithData: imageData];
+            cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
+            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+            cell.backgroundColor = UIColorFromRGB(0x333333);
+            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+            break;
+        }
+    }
     return cell;
 }
 
@@ -112,6 +139,9 @@ static NSString* const kCellId = @"myCell";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.0;
+}
+- (IBAction)touchSegmentedControl:(id)sender {
+    [self.tableView reloadData];
 }
 
 @end

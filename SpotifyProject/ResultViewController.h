@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *artistButton;
 @property (strong, nonatomic) IBOutlet UIButton *trackButton;
 @property (strong, nonatomic) IBOutlet UIButton *albumButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 
 @property (strong, nonatomic) IBOutlet UILabel *noResultLabel;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
