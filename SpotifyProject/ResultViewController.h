@@ -12,6 +12,8 @@
     @private
     NSMutableDictionary* jsonDict;
     NSMutableArray* listTracks;
+    NSMutableDictionary* jsonDictArtist;
+    NSMutableArray* listArtists;
     NSMutableArray* imageUrl;
     NSMutableString* artistNameUpdated;
    

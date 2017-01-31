@@ -41,15 +41,16 @@
     NSLog(@"%@",artistNameUpdated);
     
     //URL Builder
-    NSString* url = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=track&market=FR", artistNameUpdated];
+    NSString* urlTrack = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=track&market=FR", artistNameUpdated];
+    NSString* urlArtist = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=artist&market=FR", artistNameUpdated];
     
     [self.trackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.artistButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.albumButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
 
-    NSURLSession* session = [NSURLSession sharedSession];
-    NSURLRequest* request = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: url]];
-    NSURLSessionDataTask* dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+    NSURLSession* sessionTrack = [NSURLSession sharedSession];
+    NSURLRequest* requestTrack = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: urlTrack]];
+    NSURLSessionDataTask* dataTask = [sessionTrack dataTaskWithRequest:requestTrack completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if(!error) {
             self->jsonDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             self->listTracks = [[jsonDict objectForKey:(@"tracks")]objectForKey:(@"items")];
@@ -57,6 +58,18 @@
 
     }];
     [dataTask resume];
+    
+    NSURLSession* sessionArtist = [NSURLSession sharedSession];
+    NSURLRequest* requestArtist = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: urlArtist]];
+    NSURLSessionDataTask* dataTaskArtist = [sessionArtist dataTaskWithRequest:requestArtist completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error) {
+            self->jsonDictArtist = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            self->listArtists = [[jsonDictArtist objectForKey:(@"artists")]objectForKey:(@"items")];
+        }
+        
+    }];
+    [dataTaskArtist resume];
+    
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -84,39 +97,39 @@ static NSString* const kCellId = @"myCell";
         [tableView registerNib:[UINib nibWithNibName:@"ResultTrackCell" bundle:nil] forCellReuseIdentifier:kCellId];
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     }
+    cell.backgroundColor = UIColorFromRGB(0x333333);
     switch(self.segmentedControl.selectedSegmentIndex) {
         case 0:
         {
-            cell.trackLabel.text = @"aaaaaaa";
-            cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
-            cell.albumLabel.text = @"testttt";
-            cell.imageView.image = nil;
-            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            cell.backgroundColor = UIColorFromRGB(0x333333);
-            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
+            cell.trackView.hidden = YES;
+            cell.artistView.hidden = NO;
+            cell.artistNameLabel.text = [NSString stringWithFormat:@"%@", [[listArtists objectAtIndex:indexPath.row] objectForKey:@"name"]];
             break;
         }
         case 1:
         {
+            cell.artistView.hidden = YES;
+            cell.trackView.hidden = NO;
             cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
             cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
             NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
             cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            cell.backgroundColor = UIColorFromRGB(0x333333);
+            
             cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
         }
         case 2:
         {
+            cell.artistView.hidden = YES;
+            cell.trackView.hidden = NO;
             cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
             cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
             NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
             cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            cell.backgroundColor = UIColorFromRGB(0x333333);
             cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
         }
