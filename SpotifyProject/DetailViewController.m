@@ -19,7 +19,8 @@
     NSLog(@"%@", [self.itemReceived objectForKey:@"name"]);
     self.titleLabel.text = [NSString stringWithFormat:@"%@", [self.itemReceived objectForKey:@"name"]];
     self.albumLabel.text = [NSString stringWithFormat:@"%@", [[self.itemReceived objectForKey:@"album"]objectForKey:@"name"]];
-    NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: self.imageURLReceived]];
+    NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[self.itemReceived objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:0] objectForKey:@"url"]]];
+        //objectAtIndex: 0 <- pour prendre la plus grande image, sinon (300x300, 64x64)
     self.imageView.image = [UIImage imageWithData: imageData];
     self.durationLabel.text = [NSString stringWithFormat:@"%@",[self convertMSToSec: [self.itemReceived objectForKey:@"duration_ms" ]]];
     self.artistLabel.text = [NSString stringWithFormat:@"%@", [[[self.itemReceived objectForKey:@"artists"]objectAtIndex:0]objectForKey:@"name"]];

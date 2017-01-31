@@ -150,8 +150,6 @@ static NSString* const kCellId = @"myCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailViewController* dvc = [[DetailViewController alloc]init];
     dvc.itemReceived = [listTracks objectAtIndex:indexPath.row];
-    dvc.imageURLReceived = [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:0] objectForKey:@"url"];
-    //objectAtIndex: 0 <- pour prendre la plus grande image, sinon (300x300, 64x64)
     [self.navigationController pushViewController:dvc animated:YES];
 }
 
