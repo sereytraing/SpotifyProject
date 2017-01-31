@@ -43,6 +43,8 @@
     //URL Builder
     NSString* urlTrack = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=track&market=FR", artistNameUpdated];
     NSString* urlArtist = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=artist&market=FR", artistNameUpdated];
+    NSString* urlAlbum = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=album&market=FR", artistNameUpdated];
+    
     
     [self.trackButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [self.artistButton setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
@@ -70,6 +72,16 @@
     }];
     [dataTaskArtist resume];
     
+    NSURLSession* sessionAlbum = [NSURLSession sharedSession];
+    NSURLRequest* requestAlbum = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString: urlAlbum]];
+    NSURLSessionDataTask* dataTaskAlbum = [sessionAlbum dataTaskWithRequest:requestAlbum completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error) {
+            self->jsonDictAlbum = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+            self->listAlbums = [[jsonDictAlbum objectForKey:(@"albums")]objectForKey:(@"items")];
+        }
+        
+    }];
+    [dataTaskAlbum resume];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -103,6 +115,7 @@ static NSString* const kCellId = @"myCell";
         {
             cell.trackView.hidden = YES;
             cell.artistView.hidden = NO;
+            cell.imageView.image = nil;
             cell.artistNameLabel.text = [NSString stringWithFormat:@"%@", [[listArtists objectAtIndex:indexPath.row] objectForKey:@"name"]];
             break;
         }
@@ -116,7 +129,6 @@ static NSString* const kCellId = @"myCell";
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
             cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            
             cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
         }
@@ -124,11 +136,11 @@ static NSString* const kCellId = @"myCell";
         {
             cell.artistView.hidden = YES;
             cell.trackView.hidden = NO;
-            cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"]];
+            cell.trackLabel.text = [NSString stringWithFormat:@"%@", [[listAlbums objectAtIndex:indexPath.row] objectForKey:@"name"]];
             cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
-            NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
+            NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[listAlbums objectAtIndex:indexPath.row]objectForKey:@"images"]objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
-            cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
+            cell.albumLabel.text = [NSString stringWithFormat:@"%@",[[[[listAlbums objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0 ]objectForKey:@"name"]];
             cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
             cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
