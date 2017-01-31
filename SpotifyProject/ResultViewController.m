@@ -109,6 +109,8 @@ static NSString* const kCellId = @"myCell";
         [tableView registerNib:[UINib nibWithNibName:@"ResultTrackCell" bundle:nil] forCellReuseIdentifier:kCellId];
         cell = [tableView dequeueReusableCellWithIdentifier:kCellId];
     }
+    cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+    cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
     cell.backgroundColor = UIColorFromRGB(0x333333);
     switch(self.segmentedControl.selectedSegmentIndex) {
         case 0:
@@ -128,8 +130,6 @@ static NSString* const kCellId = @"myCell";
             NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
-            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
         }
         case 2:
@@ -141,8 +141,6 @@ static NSString* const kCellId = @"myCell";
             NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[listAlbums objectAtIndex:indexPath.row]objectForKey:@"images"]objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [NSString stringWithFormat:@"%@",[[[[listAlbums objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0 ]objectForKey:@"name"]];
-            cell.albumLabel.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
-            cell.containerView.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1];
             break;
         }
     }
@@ -151,14 +149,9 @@ static NSString* const kCellId = @"myCell";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     DetailViewController* dvc = [[DetailViewController alloc]init];
-    dvc.titleReceived = [[listTracks objectAtIndex:indexPath.row] objectForKey:@"name"];
-    dvc.albumReceived = [[[listTracks objectAtIndex:indexPath.row] objectForKey:@"album"]objectForKey:@"name"];
+    dvc.itemReceived = [listTracks objectAtIndex:indexPath.row];
     dvc.imageURLReceived = [[[[[listTracks objectAtIndex: indexPath.row] objectForKey:@"album"] objectForKey:@"images"] objectAtIndex:0] objectForKey:@"url"];
     //objectAtIndex: 0 <- pour prendre la plus grande image, sinon (300x300, 64x64)
-    
-    dvc.artistReceived = [[[[listTracks objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0]objectForKey:@"name"];
-    dvc.durationReceived = [[listTracks objectAtIndex:indexPath.row] objectForKey:@"duration_ms"];
-    NSLog(@"%@", [[listTracks objectAtIndex:indexPath.row] objectForKey:@"duration_ms"]);
     [self.navigationController pushViewController:dvc animated:YES];
 }
 

@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString* artistReceived;
 @property (nonatomic, strong) NSString* imageURLReceived;
 @property (nonatomic, strong) NSNumber* durationReceived;
+@property (nonatomic, strong) NSMutableDictionary* itemReceived;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;

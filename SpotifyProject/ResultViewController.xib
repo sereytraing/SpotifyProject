@@ -48,6 +48,7 @@
                         <segment title="Musique"/>
                         <segment title="Album"/>
                     </segments>
+                    <color key="tintColor" red="0.1137254902" green="0.72549019609999998" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="touchSegmentedControl:" destination="-1" eventType="valueChanged" id="IGs-bY-32D"/>
                     </connections>
