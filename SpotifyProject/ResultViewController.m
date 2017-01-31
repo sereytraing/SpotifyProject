@@ -142,6 +142,7 @@ static NSString* const kCellId = @"myCell";
             cell.imageView.image = [UIImage imageWithData: imageData];
             cell.albumLabel.text = [NSString stringWithFormat:@"%@",[[[[listAlbums objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0 ]objectForKey:@"name"]];
             break;
+            
         }
     }
     return cell;
