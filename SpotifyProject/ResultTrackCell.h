@@ -13,5 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (weak, nonatomic) IBOutlet UILabel *trackLabel;
 @property (weak, nonatomic) IBOutlet UILabel *albumLabel;
+@property (weak, nonatomic) IBOutlet UIView *trackView;
+
+@property (weak, nonatomic) IBOutlet UIView *artistView;
+@property (weak, nonatomic) IBOutlet UILabel *artistNameLabel;
 
 @end
