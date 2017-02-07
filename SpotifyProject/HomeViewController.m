@@ -17,7 +17,6 @@
 @implementation HomeViewController
 
 - (void)viewDidLoad {
-    NSLog(@"GIT DE MEEEEEEEEERDE");
     [super viewDidLoad];
     self.tf_artistName.delegate = self;
     self.submitButton.layer.cornerRadius = 10;
