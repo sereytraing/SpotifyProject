@@ -17,13 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:@"https://p.scdn.co/mp3-preview/751781f22acdd19a5edf8d27e05d79fbcd8ad679?cid=null"]; //Add any link of audio file which you want to play
-    
+    NSURL *url = [NSURL URLWithString:@"https://p.scdn.co/mp3-preview/84462d8e1e4d0f9e5ccd06f0da390f65843774a2?cid=null"]; //Add any link of audio file which you want to play
     playerItem = [AVPlayerItem playerItemWithURL:url]; // add url to playerItem
-    
     player = [AVPlayer playerWithPlayerItem:playerItem]; // add player item to AVAudioPlayer
     player = [AVPlayer playerWithURL:url];
-    
     count = 0; // intialize count to zero
 }
 
@@ -36,13 +33,11 @@
     
     [player play];  // make avplyer play the sound
     [self.playButton setTitle:@"Pause" forState:UIControlStateNormal];  // change the Button`s text
-    
     if (count == 2) {
         count = 0;
         [self.playButton setTitle:@"Play" forState:UIControlStateNormal];  // change the Button`s text
         [player pause];  // make the player pause
     }
-
 }
 
 - (IBAction)submitAction:(id)sender {
