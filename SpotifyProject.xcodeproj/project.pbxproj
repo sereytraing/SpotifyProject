@@ -15,6 +15,11 @@
 		0F3480F41E297FA40012B154 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3480F21E297FA40012B154 /* HomeViewController.xib */; };
 		0F3480F81E2997350012B154 /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3480F61E2997350012B154 /* ResultViewController.m */; };
 		0F3480F91E2997350012B154 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3480F71E2997350012B154 /* ResultViewController.xib */; };
+		0F3B341F1E4A4D64007CD9AD /* QuizzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B341D1E4A4D63007CD9AD /* QuizzViewController.m */; };
+		0F3B34201E4A4D64007CD9AD /* QuizzViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B341E1E4A4D64007CD9AD /* QuizzViewController.xib */; };
+		0F3B34251E4A4DDC007CD9AD /* DetailQuizzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F3B34231E4A4DDC007CD9AD /* DetailQuizzViewController.m */; };
+		0F3B34261E4A4DDC007CD9AD /* DetailQuizzViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0F3B34241E4A4DDC007CD9AD /* DetailQuizzViewController.xib */; };
+		0F3B342A1E4A4F53007CD9AD /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F3B34291E4A4F53007CD9AD /* AVFoundation.framework */; };
 		2F65F1D31E2FBB9100646864 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F65F1D11E2FBB9100646864 /* DetailViewController.m */; };
 		2F65F1D41E2FBB9100646864 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F65F1D21E2FBB9100646864 /* DetailViewController.xib */; };
 		2F6E5FA11E38EE8900F77936 /* ResultTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E5F9F1E38EE8900F77936 /* ResultTrackCell.m */; };
@@ -37,6 +42,13 @@
 		0F3480F51E2997350012B154 /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		0F3480F61E2997350012B154 /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		0F3480F71E2997350012B154 /* ResultViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
+		0F3B341C1E4A4D63007CD9AD /* QuizzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuizzViewController.h; sourceTree = "<group>"; };
+		0F3B341D1E4A4D63007CD9AD /* QuizzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuizzViewController.m; sourceTree = "<group>"; };
+		0F3B341E1E4A4D64007CD9AD /* QuizzViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = QuizzViewController.xib; sourceTree = "<group>"; };
+		0F3B34221E4A4DDC007CD9AD /* DetailQuizzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailQuizzViewController.h; sourceTree = "<group>"; };
+		0F3B34231E4A4DDC007CD9AD /* DetailQuizzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailQuizzViewController.m; sourceTree = "<group>"; };
+		0F3B34241E4A4DDC007CD9AD /* DetailQuizzViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailQuizzViewController.xib; sourceTree = "<group>"; };
+		0F3B34291E4A4F53007CD9AD /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2F65F1D01E2FBB9100646864 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		2F65F1D11E2FBB9100646864 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		2F65F1D21E2FBB9100646864 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
@@ -53,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3B342A1E4A4F53007CD9AD /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +77,7 @@
 			children = (
 				0F3480D81E297F6C0012B154 /* SpotifyProject */,
 				0F3480D71E297F6C0012B154 /* Products */,
+				0F3B34281E4A4F53007CD9AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +98,7 @@
 				0F3480FB1E29974E0012B154 /* Result */,
 				2F65F1D51E2FBBA000646864 /* Detail */,
 				BF6226881E378C16008520F6 /* Artist */,
+				0F3B34211E4A4D6D007CD9AD /* Quizz */,
 				0F3480E51E297F6D0012B154 /* Assets.xcassets */,
 				0F3480E71E297F6D0012B154 /* LaunchScreen.storyboard */,
 				0F3480EA1E297F6D0012B154 /* Info.plist */,
@@ -119,6 +134,35 @@
 				0F3480F71E2997350012B154 /* ResultViewController.xib */,
 			);
 			name = Result;
+			sourceTree = "<group>";
+		};
+		0F3B34211E4A4D6D007CD9AD /* Quizz */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B34271E4A4DEB007CD9AD /* DetailQuizz */,
+				0F3B341C1E4A4D63007CD9AD /* QuizzViewController.h */,
+				0F3B341D1E4A4D63007CD9AD /* QuizzViewController.m */,
+				0F3B341E1E4A4D64007CD9AD /* QuizzViewController.xib */,
+			);
+			name = Quizz;
+			sourceTree = "<group>";
+		};
+		0F3B34271E4A4DEB007CD9AD /* DetailQuizz */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B34221E4A4DDC007CD9AD /* DetailQuizzViewController.h */,
+				0F3B34231E4A4DDC007CD9AD /* DetailQuizzViewController.m */,
+				0F3B34241E4A4DDC007CD9AD /* DetailQuizzViewController.xib */,
+			);
+			name = DetailQuizz;
+			sourceTree = "<group>";
+		};
+		0F3B34281E4A4F53007CD9AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F3B34291E4A4F53007CD9AD /* AVFoundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		2F65F1D51E2FBBA000646864 /* Detail */ = {
@@ -211,6 +255,8 @@
 			files = (
 				0F3480E91E297F6D0012B154 /* LaunchScreen.storyboard in Resources */,
 				2F6E5FA21E38EE8900F77936 /* ResultTrackCell.xib in Resources */,
+				0F3B34201E4A4D64007CD9AD /* QuizzViewController.xib in Resources */,
+				0F3B34261E4A4DDC007CD9AD /* DetailQuizzViewController.xib in Resources */,
 				BF62268D1E378C9A008520F6 /* ArtistViewController.xib in Resources */,
 				0F3480E61E297F6D0012B154 /* Assets.xcassets in Resources */,
 				2F65F1D41E2FBB9100646864 /* DetailViewController.xib in Resources */,
@@ -226,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F3B34251E4A4DDC007CD9AD /* DetailQuizzViewController.m in Sources */,
 				2F65F1D31E2FBB9100646864 /* DetailViewController.m in Sources */,
 				BF62268C1E378C99008520F6 /* ArtistViewController.m in Sources */,
+				0F3B341F1E4A4D64007CD9AD /* QuizzViewController.m in Sources */,
 				0F3480DE1E297F6C0012B154 /* AppDelegate.m in Sources */,
 				0F3480DB1E297F6C0012B154 /* main.m in Sources */,
 				0F3480F31E297FA40012B154 /* HomeViewController.m in Sources */,
