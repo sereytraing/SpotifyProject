@@ -40,7 +40,6 @@
     artistNameUpdated = [[self.artistNameReceived stringByReplacingOccurrencesOfString:@" " withString:@"+"] mutableCopy];
     NSLog(@"%@",artistNameUpdated);
     
-    //URL Builder
     NSString* urlTrack = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=track&market=FR", artistNameUpdated];
     NSString* urlArtist = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=artist&market=FR", artistNameUpdated];
     NSString* urlAlbum = [NSString stringWithFormat: @"https://api.spotify.com/v1/search?q=%@&type=album&market=FR", artistNameUpdated];
