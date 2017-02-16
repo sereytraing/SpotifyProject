@@ -19,6 +19,14 @@
 		2F65F1D41E2FBB9100646864 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F65F1D21E2FBB9100646864 /* DetailViewController.xib */; };
 		2F6E5FA11E38EE8900F77936 /* ResultTrackCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F6E5F9F1E38EE8900F77936 /* ResultTrackCell.m */; };
 		2F6E5FA21E38EE8900F77936 /* ResultTrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F6E5FA01E38EE8900F77936 /* ResultTrackCell.xib */; };
+		BF101A491E53651600A61127 /* ArtistAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BF101A471E53651600A61127 /* ArtistAlbumCell.m */; };
+		BF101A4A1E53651600A61127 /* ArtistAlbumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF101A481E53651600A61127 /* ArtistAlbumCell.xib */; };
+		BF5762581E4B1E30008B2796 /* AlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF5762561E4B1E30008B2796 /* AlbumViewController.m */; };
+		BF5762591E4B1E30008B2796 /* AlbumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF5762571E4B1E30008B2796 /* AlbumViewController.xib */; };
+		BF57625C1E4B512B008B2796 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF57625B1E4B512B008B2796 /* AVFoundation.framework */; };
+		BF57625E1E4B513D008B2796 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF57625D1E4B513D008B2796 /* SystemConfiguration.framework */; };
+		BF5762611E4B53CB008B2796 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF57625F1E4B53CB008B2796 /* SpotifyAudioPlayback.framework */; };
+		BF5762621E4B53CB008B2796 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF5762601E4B53CB008B2796 /* SpotifyAuthentication.framework */; };
 		BF62268C1E378C99008520F6 /* ArtistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF62268A1E378C99008520F6 /* ArtistViewController.m */; };
 		BF62268D1E378C9A008520F6 /* ArtistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BF62268B1E378C99008520F6 /* ArtistViewController.xib */; };
 /* End PBXBuildFile section */
@@ -43,6 +51,16 @@
 		2F6E5F9E1E38EE8900F77936 /* ResultTrackCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultTrackCell.h; sourceTree = "<group>"; };
 		2F6E5F9F1E38EE8900F77936 /* ResultTrackCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultTrackCell.m; sourceTree = "<group>"; };
 		2F6E5FA01E38EE8900F77936 /* ResultTrackCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultTrackCell.xib; sourceTree = "<group>"; };
+		BF101A461E53651600A61127 /* ArtistAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistAlbumCell.h; sourceTree = "<group>"; };
+		BF101A471E53651600A61127 /* ArtistAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistAlbumCell.m; sourceTree = "<group>"; };
+		BF101A481E53651600A61127 /* ArtistAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistAlbumCell.xib; sourceTree = "<group>"; };
+		BF5762551E4B1E30008B2796 /* AlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumViewController.h; sourceTree = "<group>"; };
+		BF5762561E4B1E30008B2796 /* AlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlbumViewController.m; sourceTree = "<group>"; };
+		BF5762571E4B1E30008B2796 /* AlbumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumViewController.xib; sourceTree = "<group>"; };
+		BF57625B1E4B512B008B2796 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		BF57625D1E4B513D008B2796 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BF57625F1E4B53CB008B2796 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		BF5762601E4B53CB008B2796 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
 		BF6226891E378C99008520F6 /* ArtistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArtistViewController.h; sourceTree = "<group>"; };
 		BF62268A1E378C99008520F6 /* ArtistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArtistViewController.m; sourceTree = "<group>"; };
 		BF62268B1E378C99008520F6 /* ArtistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtistViewController.xib; sourceTree = "<group>"; };
@@ -53,6 +71,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF57625E1E4B513D008B2796 /* SystemConfiguration.framework in Frameworks */,
+				BF5762621E4B53CB008B2796 /* SpotifyAuthentication.framework in Frameworks */,
+				BF57625C1E4B512B008B2796 /* AVFoundation.framework in Frameworks */,
+				BF5762611E4B53CB008B2796 /* SpotifyAudioPlayback.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +86,7 @@
 			children = (
 				0F3480D81E297F6C0012B154 /* SpotifyProject */,
 				0F3480D71E297F6C0012B154 /* Products */,
+				BF57625A1E4B512B008B2796 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +106,7 @@
 				0F3480FA1E2997440012B154 /* Home */,
 				0F3480FB1E29974E0012B154 /* Result */,
 				2F65F1D51E2FBBA000646864 /* Detail */,
+				BF5762541E4B1E0F008B2796 /* Album */,
 				BF6226881E378C16008520F6 /* Artist */,
 				0F3480E51E297F6D0012B154 /* Assets.xcassets */,
 				0F3480E71E297F6D0012B154 /* LaunchScreen.storyboard */,
@@ -141,9 +165,41 @@
 			name = ResultTrackCell;
 			sourceTree = "<group>";
 		};
+		BF101A451E53648E00A61127 /* ArtistAlbumCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF101A461E53651600A61127 /* ArtistAlbumCell.h */,
+				BF101A471E53651600A61127 /* ArtistAlbumCell.m */,
+				BF101A481E53651600A61127 /* ArtistAlbumCell.xib */,
+			);
+			name = ArtistAlbumCell;
+			sourceTree = "<group>";
+		};
+		BF5762541E4B1E0F008B2796 /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				BF5762551E4B1E30008B2796 /* AlbumViewController.h */,
+				BF5762561E4B1E30008B2796 /* AlbumViewController.m */,
+				BF5762571E4B1E30008B2796 /* AlbumViewController.xib */,
+			);
+			name = Album;
+			sourceTree = "<group>";
+		};
+		BF57625A1E4B512B008B2796 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF57625F1E4B53CB008B2796 /* SpotifyAudioPlayback.framework */,
+				BF5762601E4B53CB008B2796 /* SpotifyAuthentication.framework */,
+				BF57625D1E4B513D008B2796 /* SystemConfiguration.framework */,
+				BF57625B1E4B512B008B2796 /* AVFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BF6226881E378C16008520F6 /* Artist */ = {
 			isa = PBXGroup;
 			children = (
+				BF101A451E53648E00A61127 /* ArtistAlbumCell */,
 				BF6226891E378C99008520F6 /* ArtistViewController.h */,
 				BF62268A1E378C99008520F6 /* ArtistViewController.m */,
 				BF62268B1E378C99008520F6 /* ArtistViewController.xib */,
@@ -177,7 +233,7 @@
 		0F3480CE1E297F6C0012B154 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "TRAING Serey";
 				TargetAttributes = {
 					0F3480D51E297F6C0012B154 = {
@@ -209,6 +265,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5762591E4B1E30008B2796 /* AlbumViewController.xib in Resources */,
+				BF101A4A1E53651600A61127 /* ArtistAlbumCell.xib in Resources */,
 				0F3480E91E297F6D0012B154 /* LaunchScreen.storyboard in Resources */,
 				2F6E5FA21E38EE8900F77936 /* ResultTrackCell.xib in Resources */,
 				BF62268D1E378C9A008520F6 /* ArtistViewController.xib in Resources */,
@@ -226,7 +284,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF5762581E4B1E30008B2796 /* AlbumViewController.m in Sources */,
 				2F65F1D31E2FBB9100646864 /* DetailViewController.m in Sources */,
+				BF101A491E53651600A61127 /* ArtistAlbumCell.m in Sources */,
 				BF62268C1E378C99008520F6 /* ArtistViewController.m in Sources */,
 				0F3480DE1E297F6C0012B154 /* AppDelegate.m in Sources */,
 				0F3480DB1E297F6C0012B154 /* main.m in Sources */,
@@ -268,6 +328,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -315,6 +376,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -342,8 +404,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SpotifyProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = alkrox.SpotifyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -353,8 +420,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SpotifyProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = alkrox.SpotifyProject;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

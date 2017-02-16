@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SpotifyAuthentication/SpotifyAuthentication.h>
+#import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
+#import <SafariServices/SafariServices.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -14,4 +17,3 @@
 
 
 @end
-

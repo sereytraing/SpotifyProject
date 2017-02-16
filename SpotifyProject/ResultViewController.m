@@ -8,6 +8,8 @@
 
 #import "ResultViewController.h"
 #import "DetailViewController.h"
+#import "AlbumViewController.h"
+#import "ArtistViewController.h"
 #import "ResultTrackCell.h"
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
@@ -139,7 +141,7 @@ static NSString* const kCellId = @"myCell";
             cell.trackLabel.textColor =[UIColor colorWithRed:0.114 green:0.725 blue:0.329 alpha:1];
             NSData* imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: [[[[listAlbums objectAtIndex:indexPath.row]objectForKey:@"images"]objectAtIndex:1] objectForKey:@"url"]]];
             cell.imageView.image = [UIImage imageWithData: imageData];
-            cell.albumLabel.text = [NSString stringWithFormat:@"%@",[[[[listAlbums objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0 ]objectForKey:@"name"]];
+            cell.albumLabel.text = [NSString stringWithFormat:@"%@",[[[[listAlbums objectAtIndex:indexPath.row] objectForKey:@"artists"]objectAtIndex:0]objectForKey:@"name"]];
             break;
             
         }
@@ -148,9 +150,10 @@ static NSString* const kCellId = @"myCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    DetailViewController* dvc = [[DetailViewController alloc]init];
-    dvc.itemReceived = [listTracks objectAtIndex:indexPath.row];
-    [self.navigationController pushViewController:dvc animated:YES];
+//    DetailViewController* dvc = [[DetailViewController alloc]init];
+    ArtistViewController* avc = [[ArtistViewController alloc]init];
+    avc.itemReceived = [listTracks objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:avc animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
