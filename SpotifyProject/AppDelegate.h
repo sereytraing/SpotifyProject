@@ -11,7 +11,7 @@
 #import <SpotifyAudioPlayback/SpotifyAudioPlayback.h>
 #import <SafariServices/SafariServices.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate , SPTAudioStreamingDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

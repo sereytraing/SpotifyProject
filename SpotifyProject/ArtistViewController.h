@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ArtistViewController : UIViewController
+@interface ArtistViewController : UIViewController<UIScrollViewDelegate>
 @property (nonatomic, strong) NSString* titleReceived;
 @property (nonatomic, strong) NSString* albumReceived;
 @property (nonatomic, strong) NSString* artistReceived;

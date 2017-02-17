@@ -21,10 +21,10 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-}
-
-- (void)viewDidAppear{
-    self.navigationController.hidesBarsOnSwipe = true;
+    if([self.navigationController respondsToSelector:@selector(hidesBarsOnSwipe)]) {
+        self.navigationController.hidesBarsOnSwipe = YES;
+    }
+    self.scrollView.delegate= self;
 }
 
 - (void)viewDidLayoutSubviews{
@@ -73,6 +73,20 @@
     newFrame.size.height = 78;
     [self.kindView setFrame:newFrame];
 }
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    NSLog(@"%g",scrollView.contentOffset.y);
+    if(scrollView.contentOffset.y <= 20){
+        [self.navigationController.navigationBar setHidden:NO];
+        self.navigationController.hidesBarsOnSwipe = NO;
+    }else{
+        [self.navigationController.navigationBar setHidden:YES];
+        self.navigationController.hidesBarsOnSwipe = YES;
+    }
+}
+
+
 
 /*
  #pragma mark - Navigation

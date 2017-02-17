@@ -150,7 +150,7 @@ static NSString* const kCellId = @"myCell";
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    DetailViewController* dvc = [[DetailViewController alloc]init];
+    //    DetailViewController* dvc = [[DetailViewController alloc]init];
     ArtistViewController* avc = [[ArtistViewController alloc]init];
     avc.itemReceived = [listTracks objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:avc animated:YES];
