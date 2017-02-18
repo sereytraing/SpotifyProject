@@ -20,9 +20,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.auth = [SPTAuth defaultInstance];
     self.player = [SPTAudioStreamingController sharedInstance];
-    // The client ID you got from the developer site
+    // The client ID from application website
     self.auth.clientID = @"c0cd7fe28ec941da9647b6361ad521ce";
-    // The redirect URL as you entered it at the developer site
+    // The redirect URL from application website
     self.auth.redirectURL = [NSURL URLWithString:@"spotify-project-login://callback"];
     // Setting the `sessionUserDefaultsKey` enables SPTAuth to automatically store the session object for future use.
     self.auth.sessionUserDefaultsKey = @"current session";
@@ -49,15 +49,15 @@
 - (void)startAuthenticationFlow
 {
     // Check if we could use the access token we already have
-    if ([self.auth.session isValid]) {
-        // Use it to log in
-    } else {
+//    if ([self.auth.session isValid]) {
+//        // Use it to log in
+//    } else {
         // Get the URL to the Spotify authorization portal
         NSURL *authURL = [self.auth spotifyWebAuthenticationURL];
         // Present in a SafariViewController
         self.authViewController = [[SFSafariViewController alloc] initWithURL:authURL];
         [self.window.rootViewController presentViewController:self.authViewController animated:YES completion:nil];
-    }
+//    }
 }
 // Handle auth callback
 - (BOOL)application:(UIApplication *)app

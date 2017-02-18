@@ -77,7 +77,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSLog(@"%g",scrollView.contentOffset.y);
-    if(scrollView.contentOffset.y <= 20){
+    if(scrollView.contentOffset.y < -20){
         [self.navigationController.navigationBar setHidden:NO];
         self.navigationController.hidesBarsOnSwipe = NO;
     }else{

@@ -25,7 +25,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-za-LZN">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="no_image_song" translatesAutoresizingMaskIntoConstraints="NO" id="VQ5-za-LZN">
                     <rect key="frame" x="51.5" y="32.5" width="272" height="272"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -97,4 +97,7 @@
             <point key="canvasLocation" x="72" y="59"/>
         </view>
     </objects>
+    <resources>
+        <image name="no_image_song" width="663" height="661"/>
+    </resources>
 </document>
